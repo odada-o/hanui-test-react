@@ -1,9 +1,24 @@
+'use client';
+
 import Image from "next/image";
+import { useCounterStore } from "../store/useCounterStore";
 
 export default function Home() {
+  const { count, increment, decrement, reset } = useCounterStore();
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+        
+        <div>
+          <p>Count: {count}</p>
+          <button onClick={increment}>+</button>
+          <button onClick={decrement}>-</button>
+          <button onClick={reset}>Reset</button>
+        </div>
+        
+        
+        
         <Image
           className="dark:invert"
           src="/next.svg"
